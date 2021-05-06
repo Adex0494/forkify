@@ -14,10 +14,16 @@ class ResultsView extends View {
   }
 
   _generateRecipePreview(recipePreview) {
+    const id = window.location.hash.slice(1);
+
     return `<li class="preview">
-            <a class="preview__link" href="#${recipePreview.id}">
+            <a class="preview__link" ${
+              recipePreview.id === id ? 'preview__link--active' : ''
+            } href="#${recipePreview.id}">
                 <figure class="preview__fig">
-                <img src="${recipePreview.image}" alt="${recipePreview.title}" />
+                <img src="${recipePreview.image}" alt="${
+      recipePreview.title
+    }" />
                 </figure>
                 <div class="preview__data">
                     <h4 class="preview__title">${recipePreview.title}.</h4>
